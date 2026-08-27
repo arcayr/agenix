@@ -43,6 +43,7 @@ let
     # shellcheck disable=2043
     for identity in ${toString cfg.identityPaths}; do
       test -r "$identity" || continue
+      test -s "$identity" || continue
       IDENTITIES+=(-i)
       IDENTITIES+=("$identity")
     done
